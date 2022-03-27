@@ -32,7 +32,10 @@ class mywindow(QtWidgets.QMainWindow):
         global start_day, calc_day
         calc_date = self.ui.calendarWidget.selectedDate()
         delta_days = start_date.daysTo(calc_date)
-        self.ui.label_3.setText("До тура будет %s дней!" % delta_days)
+        if delta_days > 0:
+            self.ui.label_3.setText("До тура будет %s дней!" % delta_days)
+        else:
+            self.ui.label_3.setText("Выберите более позднюю дату")
         self.ui.label_3.adjustSize()
 
 
